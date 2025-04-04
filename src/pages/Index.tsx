@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -7,8 +8,12 @@ import { Button } from '@/components/ui/button';
 import Header from '@/components/Header';
 import BookCard from '@/components/BookCard';
 import ShlokaSection from '@/components/ShlokaSection';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { translations } from '@/lib/translations';
 
 const Index = () => {
+  const { translate } = useLanguage();
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -20,20 +25,20 @@ const Index = () => {
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-3xl">
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                हिंदी साहित्य का डिजिटल पुस्तकालय
+                {translate(translations.heroTitle.hindi, translations.heroTitle.english)}
               </h1>
               <p className="text-xl mb-8">
-                हिंदी के प्रमुख रचनाकारों की विरासत को संजोकर रखने वाला एक पहल। यहाँ आपको कालजयी साहित्य, कहानियां और कविताएँ मिलेंगी।
+                {translate(translations.heroDescription.hindi, translations.heroDescription.english)}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link to="/books">
                   <Button className="bg-white text-maroon-700 hover:bg-gray-100">
-                    पुस्तकालय देखें <ArrowRight className="ml-2 h-4 w-4" />
+                    {translate(translations.viewLibrary.hindi, translations.viewLibrary.english)} <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </Link>
                 <Link to="/authors">
                   <Button variant="outline" className="border-white text-white hover:bg-white/10">
-                    लेखक परिचय
+                    {translate(translations.authorIntro.hindi, translations.authorIntro.english)}
                   </Button>
                 </Link>
               </div>
@@ -45,9 +50,9 @@ const Index = () => {
         <section className="py-16 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="flex justify-between items-center mb-8">
-              <h2 className="text-3xl font-bold text-gray-800">प्रमुख रचनाएँ</h2>
+              <h2 className="text-3xl font-bold text-gray-800">{translate(translations.featuredWorks.hindi, translations.featuredWorks.english)}</h2>
               <Link to="/books" className="text-maroon-600 hover:text-maroon-700 flex items-center">
-                सभी देखें <ArrowRight className="ml-1 h-4 w-4" />
+                {translate(translations.viewAll.hindi, translations.viewAll.english)} <ArrowRight className="ml-1 h-4 w-4" />
               </Link>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -64,7 +69,7 @@ const Index = () => {
         {/* Genres Section */}
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-gray-800 mb-8">साहित्य विधाएँ</h2>
+            <h2 className="text-3xl font-bold text-gray-800 mb-8">{translate(translations.litCategories.hindi, translations.litCategories.english)}</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
               {genres.map(genre => (
                 <Link 
@@ -76,7 +81,7 @@ const Index = () => {
                     {genre.hindiName || genre.name}
                   </h3>
                   <p className="text-sm text-gray-600">
-                    {books.filter(book => book.genres.some(g => g.id === genre.id)).length} पुस्तकें
+                    {books.filter(book => book.genres.some(g => g.id === genre.id)).length} {translate(translations.books.hindi, translations.books.english)}
                   </p>
                 </Link>
               ))}
@@ -87,7 +92,7 @@ const Index = () => {
         {/* Authors Section */}
         <section className="py-16 bg-gray-50">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-gray-800 mb-8">प्रसिद्ध लेखक</h2>
+            <h2 className="text-3xl font-bold text-gray-800 mb-8">{translate(translations.famousAuthors.hindi, translations.famousAuthors.english)}</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
               {authors.map(author => (
                 <Link 
@@ -104,7 +109,7 @@ const Index = () => {
                     {author.hindiName || author.name}
                   </h3>
                   <p className="text-sm text-gray-600 mt-1">
-                    {books.filter(book => book.author.id === author.id).length} कृतियाँ
+                    {books.filter(book => book.author.id === author.id).length} {translate(translations.works.hindi, translations.works.english)}
                   </p>
                 </Link>
               ))}
@@ -116,13 +121,13 @@ const Index = () => {
         <section className="py-16 bg-gradient-to-r from-maroon-800 to-maroon-600 text-white">
           <div className="container mx-auto px-4 text-center">
             <BookOpen className="h-16 w-16 mx-auto mb-6 text-white/80" />
-            <h2 className="text-3xl font-bold mb-4">हिंदी साहित्य का अनमोल खजाना</h2>
+            <h2 className="text-3xl font-bold mb-4">{translate(translations.treasureTitle.hindi, translations.treasureTitle.english)}</h2>
             <p className="text-xl mb-8 max-w-3xl mx-auto">
-              साहित्य हमारी संस्कृति और विरासत को सहेजता है। हमारे पुस्तकालय में हिंदी साहित्य की अमूल्य रचनाओं का संग्रह देखें।
+              {translate(translations.treasureDescription.hindi, translations.treasureDescription.english)}
             </p>
             <Link to="/books">
               <Button className="bg-white text-maroon-700 hover:bg-gray-100">
-                पुस्तकालय देखें
+                {translate(translations.viewLibrary.hindi, translations.viewLibrary.english)}
               </Button>
             </Link>
           </div>
@@ -139,13 +144,13 @@ const Index = () => {
               </Link>
             </div>
             <div className="flex space-x-6">
-              <Link to="/books" className="hover:text-saffron-300">पुस्तकें</Link>
-              <Link to="/authors" className="hover:text-saffron-300">लेखक</Link>
-              <Link to="/genres" className="hover:text-saffron-300">विधाएँ</Link>
+              <Link to="/books" className="hover:text-saffron-300">{translate(translations.books.hindi, translations.books.english)}</Link>
+              <Link to="/authors" className="hover:text-saffron-300">{translate(translations.authors.hindi, translations.authors.english)}</Link>
+              <Link to="/genres" className="hover:text-saffron-300">{translate(translations.genres.hindi, translations.genres.english)}</Link>
             </div>
           </div>
           <div className="mt-8 pt-6 border-t border-gray-700 text-center text-gray-400">
-            <p>© 2025 हिंदी साहित्य पुस्तकालय. सर्वाधिकार सुरक्षित.</p>
+            <p>{translate(translations.copyright.hindi, translations.copyright.english)}</p>
           </div>
         </div>
       </footer>
