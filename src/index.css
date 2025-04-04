@@ -8,65 +8,35 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 356 60% 50%;
+    --primary: 20 70% 50%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 30 100% 60%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 30 100% 60%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 356 60% 50%;
-
-    --radius: 0.5rem;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 356 60% 50%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 30 100% 60%;
+    --secondary: 30 60% 40%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
 
-    --accent: 30 100% 60%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 30 60% 40%;
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 356 60% 50%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 20 70% 50%;
+
+    --radius: 0.5rem;
   }
 }
 
@@ -76,7 +46,7 @@
   }
 
   body {
-    @apply bg-background text-foreground bg-paper-texture font-hindi;
+    @apply bg-background text-foreground bg-dark-texture font-hindi;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -86,7 +56,7 @@
 
 @layer components {
   .book-card {
-    @apply relative overflow-hidden rounded-lg border bg-white shadow-md transition-all duration-300 hover:shadow-xl;
+    @apply relative overflow-hidden rounded-lg border border-amber-800/30 bg-card/80 shadow-lg transition-all duration-300 hover:shadow-amber-900/20;
   }
   
   .book-card:hover .book-card-overlay {
@@ -98,7 +68,7 @@
   }
   
   .book-card-overlay {
-    @apply absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 transition-opacity duration-300;
+    @apply absolute inset-0 flex items-center justify-center bg-black/70 opacity-0 transition-opacity duration-300;
   }
   
   .book-card-content {
@@ -106,10 +76,11 @@
   }
   
   .btn-primary {
-    @apply bg-maroon-600 text-white hover:bg-maroon-700 px-4 py-2 rounded-md font-medium transition-colors;
+    @apply bg-amber-600 text-white hover:bg-amber-700 px-4 py-2 rounded-md font-medium transition-colors;
   }
 
   .btn-secondary {
-    @apply bg-saffron-500 text-white hover:bg-saffron-600 px-4 py-2 rounded-md font-medium transition-colors;
+    @apply bg-amber-700 text-white hover:bg-amber-800 px-4 py-2 rounded-md font-medium transition-colors;
   }
 }
+
