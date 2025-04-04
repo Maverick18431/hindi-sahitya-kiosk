@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -7,6 +6,7 @@ import { books, featuredBooks, genres, authors } from '@/lib/data';
 import { Button } from '@/components/ui/button';
 import Header from '@/components/Header';
 import BookCard from '@/components/BookCard';
+import ShlokaSection from '@/components/ShlokaSection';
 
 const Index = () => {
   return (
@@ -57,6 +57,9 @@ const Index = () => {
             </div>
           </div>
         </section>
+
+        {/* Shlokas Section */}
+        <ShlokaSection />
 
         {/* Genres Section */}
         <section className="py-16 bg-white">
