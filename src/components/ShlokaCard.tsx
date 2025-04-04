@@ -18,7 +18,7 @@ const ShlokaCard = ({ sanskrit, meaning, author, source }: ShlokaCardProps) => {
       </CardHeader>
       <CardContent className="pt-4">
         <div className="mb-4">
-          {sanskrit.map((line, index) => (
+          {Array.isArray(sanskrit) && sanskrit.map((line, index) => (
             <p key={index} className="font-hindi text-lg mb-1 text-gray-800 leading-relaxed">{line}</p>
           ))}
         </div>
